@@ -1,4 +1,4 @@
-# 🖥️ PRÁCTICA 1 — ADMINISTRACIÓN DE SISTEMAS (UD4)
+# PRÁCTICA 1 — ADMINISTRACIÓN DE SISTEMAS (UD4)
 
 ---
 
@@ -11,6 +11,8 @@ Crea un usuario llamado **dev01** utilizando `useradd` sin opciones adicionales.
 ```bash
 sudo useradd dev01
 ```
+![alt text](image.png)
+
 
 ![alt text](image.png)
 
@@ -24,7 +26,11 @@ ls /home
 
 > Por defecto **no se crea el directorio personal**.
 
+
 📸 Captura
+
+=======
+![alt text](image-1.png)
 
 ---
 
@@ -35,6 +41,8 @@ cat /etc/passwd | grep dev01
 ```
 
 📸 Captura
+=======
+![alt text](image-2.png)
 
 ---
 
@@ -44,7 +52,7 @@ Comprobar su grupo por defecto en `/etc/group`.
 cat /etc/group | grep dev01
 ```
 
-📸 Captura
+![alt text](image-3.png)
 
 ---
 
@@ -56,8 +64,9 @@ Mostrar la configuración por defecto del sistema para la creación de usuarios.
 useradd -D
 ```
 
-📸 Captura
+![alt text](image-4.png)
 
+![alt text](image-5.png)
 ---
 
 ## 1.3 Crear usuario dev02 con directorio personal
@@ -74,7 +83,7 @@ Comprobar el directorio:
 ls /home
 ```
 
-📸 Captura
+![alt text](image-6.png)
 
 ---
 
@@ -86,8 +95,7 @@ Mostrar el contenido del directorio `/etc/skel`.
 ls /etc/skel
 ```
 
-📸 Captura
-
+![alt text](image-7.png)
 ---
 
 ## 1.5 Crear usuario dev03 con adduser
@@ -98,6 +106,8 @@ Crear un tercer usuario llamado **dev03** utilizando:
 sudo adduser dev03
 ```
 
+![alt text](image-8.png)
+
 ### Comprobaciones
 
 Entrada en `/etc/passwd`:
@@ -106,7 +116,7 @@ Entrada en `/etc/passwd`:
 cat /etc/passwd | grep dev03
 ```
 
-📸 Captura
+![alt text](image-9.png)
 
 ---
 
@@ -116,7 +126,7 @@ Entrada en `/etc/shadow`:
 sudo cat /etc/shadow | grep dev03
 ```
 
-📸 Captura
+![alt text](image-10.png)
 
 ---
 
@@ -126,7 +136,7 @@ Grupo asociado:
 groups dev03
 ```
 
-📸 Captura
+![alt text](image-11.png)
 
 ---
 
@@ -138,7 +148,7 @@ Mostrar el contenido del archivo `/etc/adduser.conf`.
 cat /etc/adduser.conf
 ```
 
-📸 Captura
+![alt text](image-12.png)
 
 ---
 
@@ -153,9 +163,10 @@ Si no permite acceso, asignar contraseña:
 ```bash
 sudo passwd dev01
 ```
+> Despues de ejecutarlo, hacemos:  **su dev01**. 
 
-📸 Captura
 
+![alt text](image-13.png)
 ---
 
 ## 1.8 Crear grupo devs
@@ -164,8 +175,7 @@ sudo passwd dev01
 sudo addgroup devs
 ```
 
-📸 Captura
-
+![alt text](image-14.png)
 ---
 
 ## 1.9 Añadir usuarios al grupo
@@ -177,22 +187,24 @@ sudo usermod -aG devs dev01
 sudo usermod -aG devs dev02
 sudo usermod -aG devs dev03
 ```
+![alt text](image-15.png)
 
 ### Comprobación
 
 Primera forma:
 
 ```bash
-groups dev01
+grep devs /etc/group
 ```
+![alt text](image-16.png)
 
 Segunda forma:
 
 ```bash
-cat /etc/group | grep devs
+groups dev01 dev02 dev03
 ```
 
-📸 Captura
+![alt text](image-17.png)
 
 ---
 
@@ -210,7 +222,7 @@ Crear directorio:
 mkdir ~/grupo
 ```
 
-📸 Captura
+![alt text](image-18.png)
 
 ---
 
@@ -222,7 +234,7 @@ Generar archivo con los usuarios del grupo devs.
 getent group devs > ~/grupo/members.txt
 ```
 
-📸 Captura
+![alt text](image-19.png)
 
 ---
 
@@ -232,7 +244,7 @@ getent group devs > ~/grupo/members.txt
 ls -l ~/grupo/members.txt
 ```
 
-📸 Captura
+![alt text](image-20.png)
 
 ---
 
@@ -243,6 +255,7 @@ Solo el propietario puede modificar, el grupo puede leer y otros sin acceso.
 ```bash
 chmod 640 ~/grupo/members.txt
 ```
+![alt text](image-21.png)
 
 Comprobar:
 
@@ -250,7 +263,7 @@ Comprobar:
 ls -l ~/grupo/members.txt
 ```
 
-📸 Captura
+![alt text](image-22.png)
 
 ---
 
@@ -260,9 +273,11 @@ ls -l ~/grupo/members.txt
 sudo usermod -L dev02
 ```
 
+![alt text](image-23.png)
+
 > El sistema añade un `!` delante del hash de la contraseña en `/etc/shadow`.
 
-📸 Captura
+![alt text](image-24.png)
 
 ---
 
@@ -272,15 +287,17 @@ sudo usermod -L dev02
 sudo usermod -U dev02
 ```
 
-📸 Captura
+![alt text](image-25.png)
 
 ---
 
 ## 1.16 Configurar caducidad de usuario
 
 ```bash
-sudo chage -E 2026-12-31 dev03
+sudo chage -E 2026-09-01 dev03
 ```
+
+![alt text](image-26.png)
 
 Comprobar configuración:
 
@@ -288,7 +305,7 @@ Comprobar configuración:
 chage -l dev03
 ```
 
-📸 Captura
+![alt text](image-27.png)
 
 ---
 
@@ -300,13 +317,15 @@ Eliminar usuario:
 sudo userdel dev01
 ```
 
+![alt text](image-28.png)
+
 Comprobar si existe el directorio:
 
 ```bash
 ls /home
 ```
 
-📸 Captura
+![alt text](image-29.png)
 
 ---
 
@@ -316,7 +335,7 @@ Eliminar usuario junto con su directorio personal:
 sudo userdel -r dev02
 ```
 
-📸 Captura
+![alt text](image-30.png)
 
 ---
 
@@ -335,22 +354,24 @@ Estructura:
 Crear directorios:
 
 ```bash
-sudo mkdir -p /project/code
-sudo mkdir -p /project/tests
+sudo mkdir /project/code
+sudo mkdir /project/tests
 ```
 
-📸 Captura
+![alt text](image-31.png)
 
 ---
 
 ## 2.2 Crear archivos de prueba
 
 ```bash
-touch /project/code/test_Alexis.txt
-touch /project/tests/test_Alexis.txt
+touch alexis_prueba.txt /project
+touch alexis_prueba.txt /project/code
+touch alexis_prueba.txt /project/tests
+
 ```
 
-📸 Captura
+![alt text](image-32.png)
 
 ---
 
@@ -360,19 +381,28 @@ touch /project/tests/test_Alexis.txt
 sudo chown :devs /project/code
 ```
 
-📸 Captura
-
+![alt text](image-33.png)
 ---
 
 ## 2.4 Configurar permisos
 
+Solo los miembros del grupo puedan crear y modificar archivos en /code.
 ```bash
 sudo chmod 770 /project/code
-sudo chmod 755 /project/tests
 ```
+![alt text](image-34.png)
 
-📸 Captura
+En /tests solo el propietario pueda modificar.
+```bash
+sudo chmod 744 /project/tests
+```
+![alt text](image-35.png)
 
+Otros usuarios no tengan permisos de escritura.
+```bash
+sudo chmod 775 project
+```
+![alt text](image-36.png)
 ---
 
 ## 2.5 Activar bit SGID
@@ -381,9 +411,15 @@ sudo chmod 755 /project/tests
 sudo chmod g+s /project/code
 ```
 
-> El bit SGID hace que los archivos nuevos hereden el grupo del directorio.
+![alt text](image-37.png)
 
-📸 Captura
+Comprobación:
+
+![alt text](image-38.png)
+
+
+> El bit SGID hace que los archivos nuevos hereden el grupo del directorio.
+![alt text](image-39.png)
 
 ---
 
@@ -394,15 +430,14 @@ Formato largo:
 ```bash
 ls -l /project
 ```
+![alt text](image-40.png)
 
 Formato numérico:
 
 ```bash
 stat /project/code
 ```
-
-📸 Captura
-
+![alt text](image-41.png)
 ---
 
 ## 2.7 Modificar umask
@@ -410,6 +445,8 @@ stat /project/code
 ```bash
 umask 027
 ```
+![alt text](image-42.png)
+
 
 Crear archivo de prueba:
 
@@ -418,7 +455,7 @@ touch prueba.txt
 ls -l
 ```
 
-📸 Captura
+![alt text](image-43.png)
 
 ---
 
@@ -428,7 +465,7 @@ ls -l
 sudo chown usuario:grupo archivo
 ```
 
-📸 Captura
+![alt text](image-44.png)
 
 ---
 
@@ -437,10 +474,10 @@ sudo chown usuario:grupo archivo
 Intentar acceder con usuario sin permisos.
 
 ```bash
-cd /project/code
+cd /project/tests
 ```
 
-📸 Captura
+![alt text](image-45.png)
 
 ---
 
@@ -452,7 +489,7 @@ cd /project/code
 systemctl list-units --type=service
 ```
 
-📸 Captura
+![alt text](image-46.png)
 
 ---
 
@@ -462,7 +499,7 @@ systemctl list-units --type=service
 systemctl list-unit-files --type=service
 ```
 
-📸 Captura
+![alt text](image-47.png)
 
 ---
 
@@ -472,7 +509,7 @@ systemctl list-unit-files --type=service
 systemctl status ssh
 ```
 
-📸 Captura
+![alt text](image-48.png)
 
 ---
 
@@ -483,7 +520,7 @@ sudo systemctl enable servicio
 sudo systemctl disable servicio
 ```
 
-📸 Captura
+![alt text](image-49.png)
 
 ---
 
@@ -494,7 +531,7 @@ sudo systemctl stop servicio
 sudo systemctl start servicio
 ```
 
-📸 Captura
+![alt text](image-50.png)
 
 ---
 
@@ -504,44 +541,44 @@ sudo systemctl start servicio
 ps aux --sort=-%cpu
 ```
 
-📸 Captura
+![alt text](image-51.png)
 
 ---
 
 ## 3.7 Procesos por memoria
 
 ```bash
-ps aux --sort=-%mem
+ps aux --sort=-%mem|head
 ```
 
-📸 Captura
+![alt text](image-52.png)
 
 ---
 
 ## 3.8 Información de proceso por PID
 
 ```bash
-ps -p PID -f
+ps -fp 1
 ```
 
-📸 Captura
+![alt text](image-53.png)
 
 ---
 
 ## 3.9 Finalizar proceso
 
 ```bash
-kill PID
+sudo kill 4
 ```
 
-📸 Captura
+![alt text](image-54.png)
 
 ---
 
 ## 3.10 Ver logs del sistema
 
 ```bash
-journalctl -u servicio
+journalctl -u ssh
 ```
 
-📸 Captura
+![alt text](image-55.png)
