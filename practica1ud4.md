@@ -12,6 +12,8 @@ Crea un usuario llamado **dev01** utilizando `useradd` sin opciones adicionales.
 sudo useradd dev01
 ```
 
+![alt text](image.png)
+
 ### Comprobaciones
 
 Comprobar si se ha creado su directorio personal:
@@ -22,7 +24,7 @@ ls /home
 
 > Por defecto **no se crea el directorio personal**.
 
-![alt text](image.png)
+📸 Captura
 
 ---
 
@@ -32,7 +34,7 @@ Comprobar su entrada en `/etc/passwd`.
 cat /etc/passwd | grep dev01
 ```
 
-📸 Captura 
+📸 Captura
 
 ---
 
