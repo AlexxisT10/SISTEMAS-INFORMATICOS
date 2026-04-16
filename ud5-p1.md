@@ -151,24 +151,142 @@ Servidor:
 >El comando hostname es básicamente el carné de identidad de tu equipo en la red. Sirve para consultar o cambiar el nombre que identifica a tu sistema y su dominio, permitiendo que otros dispositivos sepan exactamente quién eres. Es la herramienta principal para gestionar tu nombre de máquina y asegurar que tu equipo sea reconocible dentro de cualquier red local o de internet
 
 
-## 4. Configuración de dirección IP estática
+## E4. Configuración de dirección IP estática
 **Edita el archivo de configuración de red:**
 ```bash
 sudo nano /etc/netplan/01-netcfg.yaml
 ```
-Configura las direcciones IP según el esquema definido en el escenario.
+
+Cliente:
+
+![alt text](image-7.png)
+
+Servidor:
+![alt text](image-8.png)
 
 **Aplica la configuración:**
 ```bash
 sudo netplan apply
 ```
+Cliente:
+
+![alt text](image-9.png)
+
+Servidor:
+
+![alt text](image-10.png)
 
 **Comprueba la configuración:**
 ```bash
 ip a
 ```
-Incluye capturas del archivo de configuración y del resultado del comando utilizado para comprobar la configuración.
+Cliente:
+![alt text](image-11.png)
 
-Explica qué función cumple cada parámetro utilizado en el archivo de configuración.
+Servidor:
+![alt text](image-12.png)
 
-Indica la documentación consultada sobre Netplan.
+### Configuración de red con Netplan (IP estática)
+
+```yaml
+network:
+  version: 2
+  renderer: networkd
+
+  ethernets:
+    enp0s3:
+      addresses:
+        - 192.168.50.20/24
+
+      routes:
+        - to: default
+          via: 192.168.50.1
+
+      nameservers:
+        addresses:
+          - 8.8.8.8
+```
+
+### Explicación de cada parte
+
+- **network:** Indica el inicio de la configuración de red.
+
+- **version: 2**  
+Define la versión del formato de configuración de Netplan.
+
+- **renderer: networkd**  
+Indica el servicio que gestiona la red.  
+- `networkd` → Usado normalmente en servidores.  
+- `NetworkManager` → Usado en sistemas con entorno gráfico.
+
+- **ethernets:**  
+Define las interfaces de red cableadas.
+
+- **enp0s3:**  
+Nombre de la interfaz de red configurada.
+
+- **addresses:**  
+Permite asignar una dirección IP manual.
+
+- **192.168.50.20/24**  
+Dirección IP estática con máscara de red `/24`.
+
+- **routes:**  
+Define la puerta de enlace (gateway).
+
+- **to: default**  
+Indica la ruta por defecto.
+
+- **via: 192.168.50.1**  
+Dirección IP del gateway o router.
+
+- **nameservers:**  
+Define los servidores DNS.
+
+- **8.8.8.8**  
+Servidor DNS público de Google.
+
+
+### Documentación oficial consultada
+
+- **Manual de Ubuntu:**
+https://ubuntu.com/server/docs/explanation/networking/configuring-networks/#configuring-networks
+
+## E5. Verificación de conectividad entre máquinas
+Desde el cliente ejecuta:
+```bash
+ping 192.168.50.10
+```
+![alt text](image-13.png)
+
+Desde el servidor ejecuta:
+```bash
+ping 192.168.50.20
+```
+![alt text](image-14.png)
+
+**Responde:**
+- ¿Se reciben respuestas del otro equipo?
+
+    Sí, se reciben respuestas correctamente, lo que indica que existe conectividad entre ambas máquinas.
+
+- ¿Cuántos paquetes se envían y reciben?
+
+    Se envían 4 paquetes y se reciben 4.
+
+- ¿Qué información muestra el comando ping?
+    
+    Dirección IP de destino.
+    Tiempo de respuesta (time=) en milisegundos.
+    Número de secuencia (icmp_seq).
+    Tiempo total (ttl).
+    Estadísticas finales de paquetes enviados y recibidos.
+
+### Documentación consultada
+**Página oficial man (Linux):**
+
+https://man7.org/linux/man-pages/man8/ping.8.html
+
+Incluye capturas y explica el significado de los valores que aparecen en la salida del comando.
+
+Indica las fuentes consultadas para comprender el funcionamiento de ping.
