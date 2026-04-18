@@ -43,10 +43,12 @@ cli01 → 192.168.50.20
 ```bash
 ip a
 ```
-> Maquina cliente
+Cliente:
+
 ![maquina cliente](./images2/image.png)
 
-> Maquina servidor
+Servidor:
+
 ![maquina servidor](./images2/image2.png)
 
 **Responde:**
@@ -88,7 +90,12 @@ man ip
 ```bash
 ip addr
 ```
+Cliente:
+
 ![maquina cliente](./images2/image3.png)
+
+Servidor:
+
 ![maquina servidor](./images2/image4.png)
 
 
@@ -96,8 +103,12 @@ ip addr
 ```bash
 ip route
 ```
+Cliente:
 
 ![maquina cliente](./images2/image5.png)
+
+Servidor:
+
 ![maquina servidor](./images2/image6.png)
 
 **Responde:**
@@ -113,7 +124,8 @@ ip route
 - ¿Existe una puerta de enlace configurada?
 
   Si existe una.
-![alt text](./images2/image7.png)
+
+  ![alt text](./images2/image7.png)
 
 ### Documentación consultada
 
@@ -129,7 +141,12 @@ La puerta de enlace 10.0.2.2 es tu puente hacia el mundo exterior. Es el disposi
 ```bash
 hostname
 ```
+Cliente:
+
 ![alt text](image.png)
+
+Servidor:
+
 ![alt text](image-1.png)
 
 **Configura el nombre correspondiente.**
@@ -179,6 +196,7 @@ Cliente:
 ![alt text](image-7.png)
 
 Servidor:
+
 ![alt text](image-8.png)
 
 **Aplica la configuración:**
@@ -198,9 +216,11 @@ Servidor:
 ip a
 ```
 Cliente:
+
 ![alt text](image-11.png)
 
 Servidor:
+
 ![alt text](image-12.png)
 
 ### Configuración de red con Netplan (IP estática)
@@ -351,9 +371,11 @@ https://man7.org/linux/man-pages/man5/hosts.5.html
 ip route
 ```
 Cliente:
+
 ![alt text](image-19.png)
 
 Servidor:
+
 ![alt text](image-20.png)
 
 
@@ -385,9 +407,11 @@ https://man7.org/linux/man-pages/man8/ip-route.8.html
 ss -tuln
 ```
 Cliente:
+
 ![alt text](image-22.png)
 
 Servidor:
+
 ![alt text](image-21.png)
 
 **Responde:**
@@ -484,9 +508,11 @@ https://man7.org/linux/man-pages/man1/ssh.1.html
 ip link
 ```
 Cliente:
+
 ![alt text](image-28.png)
 
 Servidor:
+
 ![alt text](image-29.png)
 
 **Responde:**
@@ -591,6 +617,7 @@ ss -tuln
 ![alt text](image-36.png)
 
 **Intenta conectarte desde el cliente.**
+
 ![alt text](image-37.png)
 
 **Después vuelve a iniciar el servicio:**
@@ -603,6 +630,7 @@ sudo systemctl start ssh
 ![alt text](image-39.png)
 
 **Se puede conectar desde el cliente:**
+
 ![alt text](image-40.png)
 
 ### Explicación
@@ -633,9 +661,11 @@ https://www.cyberciti.biz/faq/howto-start-stop-ssh-server/
   Utiliza los comandos necesarios para verificar cada elemento.
 
 Cliente:
+
 ![alt text](image-42.png)
 
 Servidor:
+
 ![alt text](image-41.png)
 
 ### Explicación
