@@ -52,7 +52,7 @@ Servidor:
 ![maquina servidor](./images2/image2.png)
 
 **Responde:**
-- ¿Que interfaz de red está activa?**
+- ¿Que interfaz de red está activa?
 
   La interfaz activa es enp0s3, ya que es la que tiene la conexión a la red.
 
@@ -143,11 +143,11 @@ hostname
 ```
 Cliente:
 
-![alt text](image.png)
+![alt text](/images3/image.png)
 
 Servidor:
 
-![alt text](image-1.png)
+![alt text](/images3/image-1.png)
 
 **Configura el nombre correspondiente.**
 
@@ -155,12 +155,12 @@ Servidor:
 ```bash
 sudo hostnamectl set-hostname srv01
 ```
-![alt text](image-4.png)
+![alt text](/images3/image-4.png)
 Cliente:
 ```bash
 sudo hostnamectl set-hostname cli01
 ```
-![alt text](image-2.png)
+![alt text](/images3/image-2.png)
 
 **Comprueba el cambio ejecutando:**
 ```bash
@@ -168,11 +168,11 @@ hostname
 ```
 Cliente:
 
-![alt text](image-3.png)
+![alt text](/images3/image-3.png)
 
 Servidor:
 
-![alt text](image-5.png)
+![alt text](/images3/image-5.png)
 
 ### Explicación comando "hostname"
 
@@ -182,7 +182,7 @@ El comando hostname es básicamente el carné de identidad de tu equipo en la re
 
 https://man7.org/linux/man-pages/man1/hostname.1.html
 
-![alt text](image-6.png)
+![alt text](/images3/image-6.png)
 
 
 ## E4. Configuración de dirección IP estática
@@ -193,11 +193,11 @@ sudo nano /etc/netplan/01-netcfg.yaml
 
 Cliente:
 
-![alt text](image-7.png)
+![alt text](/images3/image-7.png)
 
 Servidor:
 
-![alt text](image-8.png)
+![alt text](/images3/image-8.png)
 
 **Aplica la configuración:**
 ```bash
@@ -205,11 +205,11 @@ sudo netplan apply
 ```
 Cliente:
 
-![alt text](image-9.png)
+![alt text](/images3/image-9.png)
 
 Servidor:
 
-![alt text](image-10.png)
+![alt text](/images3/image-10.png)
 
 **Comprueba la configuración:**
 ```bash
@@ -217,11 +217,11 @@ ip a
 ```
 Cliente:
 
-![alt text](image-11.png)
+![alt text](/images3/image-11.png)
 
 Servidor:
 
-![alt text](image-12.png)
+![alt text](/images3/image-12.png)
 
 ### Configuración de red con Netplan (IP estática)
 
@@ -294,13 +294,13 @@ https://ubuntu.com/server/docs/explanation/networking/configuring-networks/#conf
 ```bash
 ping 192.168.50.10
 ```
-![alt text](image-13.png)
+![alt text](/images3/image-13.png)
 
 **Desde el servidor ejecuta:**
 ```bash
 ping 192.168.50.20
 ```
-![alt text](image-14.png)
+![alt text](/images3/image-14.png)
 
 **Responde:**
 - ¿Se reciben respuestas del otro equipo?
@@ -337,22 +337,22 @@ sudo nano /etc/hosts
 ```
 Cliente:
 
-![alt text](image-15.png)
+![alt text](/images3/image-15.png)
 
 Servidor:
 
-![alt text](image-16.png)
+![alt text](/images3/image-16.png)
 
 **Comprueba la resolución de nombres:**
 ```bash
 ping srv01
 ```
-![alt text](image-18.png)
+![alt text](/images3/image-18.png)
 
 ```bash
 ping cli01
 ```
-![alt text](image-17.png)
+![alt text](/images3/image-17.png)
 
 
 ### Explicación resolucion nombres (/etc/hosts)
@@ -372,11 +372,11 @@ ip route
 ```
 Cliente:
 
-![alt text](image-19.png)
+![alt text](/images3/image-19.png)
 
 Servidor:
 
-![alt text](image-20.png)
+![alt text](/images3/image-20.png)
 
 
 **Responde:**
@@ -408,11 +408,11 @@ ss -tuln
 ```
 Cliente:
 
-![alt text](image-22.png)
+![alt text](/images3/image-22.png)
 
 Servidor:
 
-![alt text](image-21.png)
+![alt text](/images3/image-21.png)
 
 **Responde:**
 
@@ -446,19 +446,19 @@ https://man7.org/linux/man-pages/man8/ss.8.html
 sudo apt update
 sudo apt install openssh-server
 ```
-![alt text](image-23.png)
+![alt text](/images3/image-23.png)
 
 **Comprueba el estado del servicio:**
 ```bash
 sudo systemctl status ssh
 ```
-![alt text](image-24.png)
+![alt text](/images3/image-24.png)
 
 **Comprueba que el puerto está abierto:***
 ```bash
 ss -tuln
 ```
-![alt text](image-25.png)
+![alt text](/images3/image-25.png)
 
 ### Explicación servicio instalado
 
@@ -479,14 +479,14 @@ https://man7.org/linux/man-pages/man1/ssh.1.html
 ```bash
 ssh usuario@192.168.50.10
 ```
-![alt text](image-26.png)
+![alt text](/images3/image-26.png)
 
 **Una vez conectado ejecuta:**
 ```bash
 whoami
 hostname
 ```
-![alt text](image-27.png)
+![alt text](/images3/image-27.png)
 
 ### Explicación
 - ¿Qué usuario está conectado?
@@ -509,11 +509,11 @@ ip link
 ```
 Cliente:
 
-![alt text](image-28.png)
+![alt text](/images3/image-28.png)
 
 Servidor:
 
-![alt text](image-29.png)
+![alt text](/images3/image-29.png)
 
 **Responde:**
 
@@ -542,11 +542,11 @@ ip neigh
 ```
 Cliente:
 
-![alt text](image-31.png)
+![alt text](/images3/image-31.png)
 
 Servidor:
 
-![alt text](image-30.png)
+![alt text](/images3/image-30.png)
 
 **Responde:**
 
@@ -577,17 +577,17 @@ https://man7.org/linux/man-pages/man8/ip-neighbour.8.html
 ```bash
 nano prueba.txt
 ```
-![alt text](image-32.png)
+![alt text](/images3/image-32.png)
 
 **Copia el archivo al servidor utilizando:**
 ```bash
 scp prueba.txt usuario@192.168.50.10:/home/usuario
 ```
-![alt text](image-33.png)
+![alt text](/images3/image-33.png)
 
 **Comprueba en el servidor que el archivo se ha copiado correctamente.**
 
-![alt text](image-34.png)
+![alt text](/images3/image-34.png)
 
 ### Explicación funcion scp
 
@@ -603,7 +603,7 @@ https://man7.org/linux/man-pages/man1/scp.1.html
 ```bash
 sudo systemctl stop ssh
 ```
-![alt text](image-35.png)
+![alt text](/images3/image-35.png)
 
 > NOTA: He tenido que ejecutar el siguiente comando para pararlo completamente:
 ```bash
@@ -614,24 +614,25 @@ sudo systemctl stop ssh.socket
 ```bash
 ss -tuln
 ```
-![alt text](image-36.png)
+![alt text](/images3/image-36.png)
 
 **Intenta conectarte desde el cliente.**
 
-![alt text](image-37.png)
+![alt text](/images3/image-37.png)
 
 **Después vuelve a iniciar el servicio:**
 ```bash
 sudo systemctl start ssh
 ```
-![alt text](image-38.png)
+![alt text](/images3/image-38.png)
 
 **Vuelve a aparecer en ss -tuln:**
-![alt text](image-39.png)
+
+![alt text](/images3/image-39.png)
 
 **Se puede conectar desde el cliente:**
 
-![alt text](image-40.png)
+![alt text](/images3/image-40.png)
 
 ### Explicación
 
@@ -662,11 +663,11 @@ https://www.cyberciti.biz/faq/howto-start-stop-ssh-server/
 
 Cliente:
 
-![alt text](image-42.png)
+![alt text](/images3/image-42.png)
 
 Servidor:
 
-![alt text](image-41.png)
+![alt text](/images3/image-41.png)
 
 ### Explicación
 La configuración se mantiene tras reiniciar porque:
